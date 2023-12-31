@@ -2,6 +2,7 @@
 Real-time View of the Earth from Above!
 
 文档语言 | document language
+
 [English]|[[中文](README_ZH.md)]
 
 This project is implemented very simply, using Python as the backend to automatically fetch real-time remote sensing satellite monitoring images from Chinese meteorological stations. The project is fully hosted on GitHub.
