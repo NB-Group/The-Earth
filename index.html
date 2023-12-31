@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="300"> <!-- 刷新页面间隔为5分钟（300秒） -->
+    <title>Background Update</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            transition: background-image 1s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+  
+    function updateBackground() {
+        // 发送GET请求
+        fetch('https://upgraded-space-enigma-446ggg6xjj5hvr7-8000.app.github.dev/')
+            .then(response => response.text())
+            .then(data => {
+                // 获取当前日期
+                const currentDate = new Date();
+                const year = currentDate.getFullYear();
+                const month = currentDate.getMonth() + 1; // 月份是从0开始的，需要加1
+                const day = currentDate.getDate();
+
+                // 构建图片URL
+                const imageUrl = `http://image.nmc.cn/product/${year}/${month}/${day}/WXBL/${data}`;
+
+                // 更新body的背景
+                document.body.style.backgroundImage = `url('${imageUrl}')`;
+            })
+            .catch(error => {
+                console.error('Error fetching data:', error);
+            });
+    }
+
+    // 初次加载页面时更新背景
+    updateBackground();
+
+    // 每5分钟更新一次背景
+    setInterval(updateBackground, 300000); // 300000毫秒 = 5分钟
+</script>
+
+</body>
+</html>
