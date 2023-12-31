@@ -2,6 +2,7 @@
 实时查看地球俯视图！
 
 文档语言 | document language
+
 [[English](README.md)]|[中文]
 
 该项目实现非常简单，python作为后端自动爬取中国气象站的实时遥感卫星监测图片。该项目完全由github托管。
